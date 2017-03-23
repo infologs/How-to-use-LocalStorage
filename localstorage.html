@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LocalStorage Demo</title>
+    <script>
+        function setLocalStorage()
+        {
+            var value = document.getElementById("txtValue").value;
+            localStorage.MyKey = value;
+            localStorage.RememberMe = true;
+        }
+
+        function getLocalStorage()
+        {
+            if (localStorage.MyKey) {
+                document.getElementById("h1LocalStorageData").innerHTML = localStorage.getItem(localStorage.key(1));
+            } else {
+                alert("Localstorage is not defined !!!");
+            }            
+        }
+
+        function CleanSingleKey() {
+            localStorage.removeItem("RememberMe");
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+        }
+    </script>
+</head>
+<body>
+    <h1 id="h1LocalStorageData">Local Storage Value</h1>
+    <input type="text" id="txtValue" name="txtValue" />
+    <input type="button" value="Set LocalStorage" onclick="setLocalStorage();" /><br/><br/>
+    <input type="button" value="Get LocalStorage" onclick="getLocalStorage();" /><br /><br/>
+    <input type="button" value="Clear Localstorage" onclick="clearLocalStorage();" /><br/><br/>
+    <input type="button" value="Clear a Specific Localstorage" onclick="CleanSingleKey();" />
+
+</body>
+</html>
